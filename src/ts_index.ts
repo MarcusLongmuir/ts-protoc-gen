@@ -4,7 +4,7 @@
  * It only accepts stdin/stdout output according to the protocol
  * specified in [plugin.proto](https://github.com/google/protobuf/blob/master/src/google/protobuf/compiler/plugin.proto).
  */
-import {processFileDescriptor} from "./processFileDescriptor";
+import {printFileDescriptorTS} from "./ts/fileDescriptorTS";
 import {ExportMap} from "./ExportMap";
 import {filePathFromProtoWithoutExtension, withAllStdIn} from "./util";
 import {CodeGeneratorRequest, CodeGeneratorResponse} from "google-protobuf/google/protobuf/compiler/plugin_pb";
@@ -29,7 +29,7 @@ withAllStdIn((inputBuff: Buffer) => {
       const outputFileName = filePathFromProtoWithoutExtension(fileName);
       const thisFile = new CodeGeneratorResponse.File();
       thisFile.setName(outputFileName + ".d.ts");
-      thisFile.setContent(processFileDescriptor(fileNameToDescriptor[fileName], exportMap));
+      thisFile.setContent(printFileDescriptorTS(fileNameToDescriptor[fileName], exportMap));
       codeGenResponse.addFile(thisFile)
     });
 
