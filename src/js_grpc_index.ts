@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * This is the ProtoC compiler plugin.
  *
@@ -36,7 +35,7 @@ withAllStdIn((inputBuff: Buffer) => {
 
     process.stdout.write(new Buffer(codeGenResponse.serializeBinary()));
   } catch (err) {
-    console.error("protoc-gen-tc Error: " + err.stack + "\n");
+    console.error("protoc-gen-ts error: " + err.stack + "\n");
     process.exit(1);
   }
 });

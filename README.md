@@ -8,7 +8,7 @@
 ![quality: alpha](https://img.shields.io/badge/quality-beta-orange.svg)
 
 This repository contains a [protoc](https://github.com/google/protobuf) plugin that generates TypeScript declarations 
-(`.d.ts` files) that match the JavaScript output of `protoc --js_out`.
+(`.d.ts` files) that match the JavaScript output of `protoc --js_out=import_style=commonjs,binary`.
 
 ## Usage
 * Install this repository using `npm install ts-protoc-gen` or clone this repository and run `npm install && npm run build`
