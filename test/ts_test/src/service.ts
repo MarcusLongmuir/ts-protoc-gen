@@ -1,10 +1,9 @@
-const chai = require("chai");
-const assert = chai.assert;
-const simple_service_pb_service = require("../generated/examplecom/simple_service_pb_service");
-const simple_service_pb = require("../generated/examplecom/simple_service_pb");
-const external_child_message_pb = require("../generated/othercom/external_child_message_pb");
+import {assert} from "chai";
+import * as simple_service_pb_service from "../generated/examplecom/simple_service_pb_service";
+import * as simple_service_pb from "../generated/examplecom/simple_service_pb";
+import * as external_child_message_pb from "../generated/othercom/external_child_message_pb";
 
-describe("js service", () => {
+describe("ts service", () => {
   it("should generate a service definition", () => {
     assert.strictEqual(simple_service_pb_service.SimpleService.serviceName, "examplecom.SimpleService");
 

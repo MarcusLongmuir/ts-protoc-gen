@@ -7,7 +7,7 @@ import {printMessage} from "./message";
 import {printEnum} from "./enum";
 import {printExtension} from "./extensions";
 
-export function printFileDescriptorTS(fileDescriptor: FileDescriptorProto, exportMap: ExportMap) {
+export function printFileDescriptorTSD(fileDescriptor: FileDescriptorProto, exportMap: ExportMap) {
   const fileName = fileDescriptor.getName();
   const packageName = fileDescriptor.getPackage();
 

@@ -4,8 +4,8 @@
  * It only accepts stdin/stdout output according to the protocol
  * specified in [plugin.proto](https://github.com/google/protobuf/blob/master/src/google/protobuf/compiler/plugin.proto).
  */
-import {printFileDescriptorJSServices} from "./js/fileDescriptorJS";
 import {ExportMap} from "./ExportMap";
+import {printFileDescriptorJSServices} from "./js/fileDescriptorJSServices";
 import {filePathFromProtoWithoutExtension, withAllStdIn} from "./util";
 import {CodeGeneratorRequest, CodeGeneratorResponse} from "google-protobuf/google/protobuf/compiler/plugin_pb";
 import {FileDescriptorProto} from "google-protobuf/google/protobuf/descriptor_pb";
@@ -30,7 +30,7 @@ withAllStdIn((inputBuff: Buffer) => {
       if (fileDescriptorOutput != "") {
         const outputFileName = filePathFromProtoWithoutExtension(fileName);
         const thisFile = new CodeGeneratorResponse.File();
-        thisFile.setName(outputFileName + "_grpc.js");
+        thisFile.setName(outputFileName + "_service.js");
         thisFile.setContent(fileDescriptorOutput);
         codeGenResponse.addFile(thisFile)
       }
